@@ -15,38 +15,23 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_27_125416) do
   enable_extension "adminpack"
   enable_extension "plpgsql"
 
-  create_table "animals", id: :integer, default: nil, force: :cascade do |t|
-    t.string "name", limit: 255
-    t.date "date_of_birth"
-    t.integer "escape_attempts"
-    t.boolean "neutered"
-    t.decimal "weight_kg", precision: 5, scale: 2
-    t.integer "species_id"
-    t.integer "owner_id"
-  end
-
   create_table "comments", force: :cascade do |t|
-    t.bigint "author_id_id"
+    t.bigint "user_id_id"
     t.bigint "post_id_id"
     t.text "text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["author_id_id"], name: "index_comments_on_author_id_id"
     t.index ["post_id_id"], name: "index_comments_on_post_id_id"
+    t.index ["user_id_id"], name: "index_comments_on_user_id_id"
   end
 
   create_table "likes", force: :cascade do |t|
-    t.bigint "author_id_id"
+    t.bigint "user_id_id"
     t.bigint "post_id_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["author_id_id"], name: "index_likes_on_author_id_id"
     t.index ["post_id_id"], name: "index_likes_on_post_id_id"
-  end
-
-  create_table "owners", id: :integer, default: nil, force: :cascade do |t|
-    t.string "full_name", limit: 255
-    t.integer "age"
+    t.index ["user_id_id"], name: "index_likes_on_user_id_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -60,10 +45,6 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_27_125416) do
     t.index ["author_id_id"], name: "index_posts_on_author_id_id"
   end
 
-  create_table "species", id: :integer, default: nil, force: :cascade do |t|
-    t.string "name", limit: 255
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "photo"
@@ -73,11 +54,9 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_27_125416) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "animals", "owners", name: "fk_owner"
-  add_foreign_key "animals", "species", name: "fk_species"
   add_foreign_key "comments", "posts", column: "post_id_id"
-  add_foreign_key "comments", "users", column: "author_id_id"
+  add_foreign_key "comments", "users", column: "user_id_id"
   add_foreign_key "likes", "posts", column: "post_id_id"
-  add_foreign_key "likes", "users", column: "author_id_id"
+  add_foreign_key "likes", "users", column: "user_id_id"
   add_foreign_key "posts", "users", column: "author_id_id"
 end

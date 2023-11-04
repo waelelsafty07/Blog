@@ -5,7 +5,7 @@ class LikesController < ApplicationController
     @like = @post.likes.build(post: @post, author: @user)
     if @like.save
     # Like successfully created
-  end
+    end
     redirect_to user_post_path(@user, @post)
   end
 end

@@ -10,6 +10,8 @@ Rails.application.routes.draw do
         delete 'unlike'
       end
       resources :comments
+      resources :likes
     end
-  end  
+  end
+  resources :likes, only: [:create, :destroy] 
 end

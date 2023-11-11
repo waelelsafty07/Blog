@@ -1,42 +1,65 @@
 require 'rails_helper'
 
-RSpec.describe 'PostsController', type: :request do
-  let(:user) { User.create(name: 'Test User') }
-  let(:post) { Post.create(author: user, title: 'Test Post') }
-
-  describe 'GET /index' do
-    before do
-      get user_posts_path(user)
+RSpec.describe 'Posts', type: :request do
+  describe 'GET /index', type: :request do
+    let!(:user) do
+      User.create(
+        name: 'test user',
+        photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
+        bio: 'test_bio',
+        posts_counter: 1
+      )
     end
 
-    context 'renders the index template' do
-      it 'response status is correct' do
-        expect(response).to have_http_status(200)
-      end
-      it 'correct template is rendered' do
-        expect(response).to render_template(:index)
-      end
-      it 'the response body includes correct placeholder text' do
-        expect(response.body).to include('Posts')
-      end
+    before(:example) { get "/users/#{user.id}/posts" }
+
+    it 'displays a list of posts' do
+      expect(response).to have_http_status(200)
+    end
+
+    it 'renders the correct template' do
+      expect(response).to render_template('index')
+    end
+
+    it 'includes correct placeholder text in the response body' do
+      expect(response.body).to include('test user')
     end
   end
 
-  describe 'GET #show' do
-    before do
-      get user_post_path(user, post)
+  describe 'GET /show', type: :request do
+    let!(:user) do
+      User.create(
+        name: 'test user',
+        photo: 'https://example.com/default-photo.jpg',
+        bio: 'test_bio',
+        posts_counter: 1
+      )
     end
 
-    context 'renders the show template' do
-      it 'response status is correct' do
-        expect(response).to have_http_status(200)
-      end
-      it 'correct template is rendered' do
-        expect(response).to render_template(:show)
-      end
-      it 'the response body includes correct placeholder text' do
-        expect(response.body).to include('Post number')
-      end
+    let!(:post) do
+      Post.create(
+        author: user,
+        title: 'Hello',
+        text: 'This is my first post',
+        comments_counter: 1,
+        likes_counter: 1
+      )
+    end
+
+    before(:example) do
+      get "/users/#{user.id}/posts/#{post.id}"
+    end
+
+    it 'displays the post details for a given post' do
+      expect(response).to have_http_status(200)
+    end
+
+    it 'renders the correct template' do
+      expect(response).to render_template('show')
+    end
+
+    it 'includes correct placeholder text in the response body' do
+      expect(response.body).to include(post.text)
     end
   end
 end

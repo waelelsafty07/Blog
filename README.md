@@ -1,116 +1,120 @@
-<div align="center">
-  <h1>Blog App</h1>
-</div>
-
 <a name="readme-top"></a>
-
-<!-- TABLE OF CONTENTS -->
 
 # 📗 Table of Contents
 
-- [📗 Table of Contents](#-table-of-contents)
-- [📖 Blog App ](#-blog-app-)
-  - [🛠 Built With ](#-built-with-)
-    - [Key Features ](#key-features-)
-  - [💻 Getting Started ](#-getting-started-)
-    - [Prerequisites](#prerequisites)
-    - [Setup](#setup)
-    - [Usage](#usage)
-    - [Run tests](#run-tests)
-  - [👥 Authors ](#-authors-)
-  - [🔭 Future Features ](#-future-features-)
-  - [🤝 Contributing ](#-contributing-)
-  - [⭐️ Show your support ](#️-show-your-support-)
-  - [🙏 Acknowledgments ](#-acknowledgments-)
-  - [📝 License ](#-license-)
+- [📖 About the Project](#about-project)
+  - [🛠 Built With](#built-with)
+    - [Tech Stack](#tech-stack)
+    - [Key Features](#key-features)
+- [💻 Getting Started](#getting-started)
+  - [Setup](#setup)
+  - [Prerequisites](#prerequisites)
+  - [Install](#install)
+  - [Usage](#usage)
+  - [Run tests](#run-tests)
+- [👥 Authors](#authors)
+- [🔭 Future Features](#future-features)
+- [🤝 Contributing](#contributing)
+- [⭐️ Show your support](#support)
+- [🙏 Acknowledgements](#acknowledgements)
+- [❓ FAQ (OPTIONAL)](#faq)
+- [📝 License](#license)
 
-<!-- PROJECT DESCRIPTION -->
+# 📖 [Ruby and Rails Project - Blog App] 
+<a name="about-project"></a>
 
-# 📖 Blog App <a name="about-project"></a>
+**[Description]**
 
-> This is a blog app based on ruby on rails. This app will feature users, posts, comments, likes.
+The Blog app be a classic example of a blog website. I will create a functional website that will show the list of posts and users can add comments and likes. 
 
-## 🛠 Built With <a name="built-with"></a>
-<h2> Tech Stack </h2>
-- Ruby on Rails
-- POSTGRES
+## 🛠 Built With 
+<a name="built-with"></a>
 
-<!-- Features -->
+### Tech Stack 
+<a name="tech-stack"></a>
 
-### Key Features <a name="key-features"></a>
+- Ruby
+- Rails
 
-- Display Users
+### Key Features 
+<a name="key-features"></a>
 
-- Display posts
+The application provides a variety of features including:
 
-- Display comments on posts
-
-- Display likes on posts
+- User authentication and authorization
+- CRUD operations for posts
+- Commenting and liking posts
+- API endpoints
+- Integration with database and models
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- GETTING STARTED -->
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
-To get a local copy up and running, follow these steps.
-
 ### Prerequisites
 
-In order to run this project you need:
+Ensure you have the following installed:
 
-Example command:
-
-```sh
- Install Ruby
- Install rails
-```
+- [Ruby](https://www.ruby-lang.org/en/)
+- [Rails](https://rubyonrails.org/)
+- [Git](https://git-scm.com/downloads)
 
 ### Setup
 
-Clone this repository to your desired folder:
+Clone the project:
 
-```sh
-  cd my-folder
-  git clone https://github.com/waelelsafty07/Blog.git
-```
+<pre> git clone https://github.com/yashodhicy/Blog-App.git </pre>
+
+### Install
+
+Navigate into the directory and install the necessary gems:
+
+<pre>
+cd blog-app
+bundle install
+</pre>
 
 ### Usage
 
-To run the project, execute the following command:
+Run the application:
 
-```sh
-  rails s
-```
-
-### Run tests
-
-To run tests, run the following command:
-
-```sh
-  rails test
-```
+<pre>
+rails server
+</pre>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- AUTHORS -->
+### Run Tests 
+<a name="Run-tests"></a>
+  go to the blog-app directory
+  run below command in the command line 
+    rspec spec
 
 ## 👥 Authors <a name="authors"></a>
 
-👤 **Wael Elsafty**
+👤 : **Yashodhi Chathurangi**
 
-- GitHub: [@waelelsafty](https://github.com/waelelsafty07)
-- LinkedIn: [@waelelsafty](https://www.linkedin.com/in/waelelsafty07/)
+- GitHub: [@githubhandle](https://github.com/yashodhicy)
+- Twitter: [@twitterhandle](https://twitter.com/Yashichathucy)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/yashodhichathurangi/)
 
-<!-- - LinkedIn: [username](link) -->
+👤 : **Sumeya Ibrahim**
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- FUTURE FEATURES -->
+- GitHub: [@isume295](https://github.com/isume295/)
+- Twitter: [@isume295](https://twitter.com/isume295)
+- LinkedIn: [@isume295](https://www.linkedin.com/in/sumeya-ibrahim)
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- Add GUI
+- add more features
+- add good UI
+- add full flow
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -120,13 +124,15 @@ To run tests, run the following command:
 
 Contributions, issues, and feature requests are welcome!
 
+Check the [issues page](../../issues/).
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- SUPPORT -->
 
 ## ⭐️ Show your support <a name="support"></a>
 
-If you like this project, give it a star.
+If you found this project helpful, consider giving a ⭐️!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -134,12 +140,14 @@ If you like this project, give it a star.
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-- Thanks to all Microverse community
+Gratitude to all contributors and educators for the invaluable resources.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- LICENSE -->
 
 ## 📝 License <a name="license"></a>
 
 This project is [MIT](./LICENSE) licensed.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#read

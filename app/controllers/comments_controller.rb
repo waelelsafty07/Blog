@@ -1,33 +1,26 @@
 class CommentsController < ApplicationController
-  before_action :find_user
-  before_action :find_post
-
   def new
-    @comment = @post.comments.new
+    @comment = Comment.new
   end
 
   def create
-    @comment = @post.comments.new(comment_params)
-    @comment.author = @user # Assign the current user to the comment
-    if @comment.save
-      flash[:notice] = 'Comment created successfully.'
-      redirect_to user_post_path(@user, @post)
-    else
-      render 'new'
+    @current = current_user
+    @post = Post.find(params[:post_id])
+    @new_comment = @post.comments.build(text: comment_parameters[:text], user_id: @current.id)
+    respond_to do |format|
+      format.html do
+        if @new_comment.save
+          redirect_to user_post_path(current_user, @post), notice: 'Comment created successfully'
+        else
+          redirect_to user_post_path(current_user, @post), alert: 'Comment not created successfully'
+        end
+      end
     end
   end
 
   private
 
-  def find_user
-    @user = current_user
-  end
-
-  def find_post
-    @post = Post.find(params[:post_id])
-  end
-
-  def comment_params
+  def comment_parameters
     params.require(:comment).permit(:text)
   end
 end

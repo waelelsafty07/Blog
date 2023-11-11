@@ -2,6 +2,10 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.2.2'
+gem 'rubocop', '>= 1.0', '< 2.0'
+
+# pagination for a page
+gem 'will_paginate'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.0.7'
@@ -49,10 +53,12 @@ gem 'bootsnap', require: false
 # gem "image_processing", "~> 1.2"
 
 group :development, :test do
+  gem 'rspec-rails'
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'capybara'
   gem 'debug', platforms: %i[mri mingw x64_mingw]
-  gem 'rspec-rails'
+  gem 'rails-controller-testing'
+  gem 'webdrivers', '5.3.1'
 end
 
 group :development do
@@ -68,12 +74,6 @@ end
 
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
+  gem 'database_cleaner'
   gem 'selenium-webdriver'
-  gem 'webdrivers'
 end
-
-gem 'rspec'
-
-gem 'rails-controller-testing'
-
-gem 'rubocop', '>= 1.0', '< 2.0'
